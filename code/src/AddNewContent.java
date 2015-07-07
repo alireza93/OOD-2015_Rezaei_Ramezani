@@ -1,90 +1,67 @@
-/**
- * Created by hamid on 7/8/2015.
- */
-
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-public class AddNewContent extends JFrame {
-    public AddNewContent() { initUI(); }
+import java.awt.event.*;
 
-    private void initUI()
-    {
-        createMenuBar();
+public class AddNewContent extends JDialog {
+    private JPanel contentPane;
+    private JButton registerButton;
+    private JButton cancelButton;
+    private JTextField TitleTextField;
+    private JTextArea TextTextArea;
+    private JTextField FilenameTextField;
+    private JTextField LabelsTextField;
+    private JLabel titleLabel;
+    private JLabel textLabel;
+    private JLabel filenameLabel;
+    private JLabel labelsLabel;
 
-        setTitle("سامانه مدیریت دانش");
-        setSize(800, 600);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    public AddNewContent() {
+        setSize(400, 600);
+        setContentPane(contentPane);
+        setModal(true);
+        getRootPane().setDefaultButton(registerButton);
+
+        registerButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                onOK();
+            }
+        });
+
+        cancelButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                onCancel();
+            }
+        });
+
+// call onCancel() when cross is clicked
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                onCancel();
+            }
+        });
+
+// call onCancel() on ESCAPE
+        contentPane.registerKeyboardAction(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                onCancel();
+            }
+        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void createMenuBar() {
-
-        JMenuBar menubar = new JMenuBar();
-        ImageIcon icon = new ImageIcon("exit.png");
-
-        JMenu file = new JMenu("فایل");
-        file.setMnemonic(KeyEvent.VK_F);
-
-        JMenuItem eMenuItem = new JMenuItem("خروج", icon);
-        eMenuItem.setMnemonic(KeyEvent.VK_E);
-        eMenuItem.setToolTipText("خروج از سامانه");
-        eMenuItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                System.exit(0);
-            }
-        });
-
-        file.add(eMenuItem);
-        menubar.add(file);
-
-        JMenu contentManagement = new JMenu("مدیریت محتوا");
-        contentManagement.setMnemonic(KeyEvent.VK_C);
-
-        JMenuItem addContent = new JMenuItem("اضافه کردن محتوا", icon);
-        addContent.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                System.exit(0);
-            }
-        });
-
-        JMenuItem searchContent = new JMenuItem("جستجو محتوا", icon);
-        searchContent.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                System.exit(0);
-            }
-        });
-
-        JMenuItem createKnowledgeReq = new JMenuItem("ایجاد یک نیازمندی دانشی", icon);
-        createKnowledgeReq .addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                System.exit(0);
-            }
-        });
-
-        JMenuItem createInterContentRelation = new JMenuItem("ایجاد رابطه بین محتوایی", icon);
-        createInterContentRelation .addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                System.exit(0);
-            }
-        });
-
-        contentManagement.add(addContent);
-        contentManagement.add(searchContent);
-        contentManagement.add(createKnowledgeReq);
-        contentManagement.add(createInterContentRelation);
-
-        menubar.add(contentManagement);
-
-        setJMenuBar(menubar);
+    private void onOK() {
+// add your code here
+        dispose();
     }
 
+    private void onCancel() {
+// add your code here if necessary
+        dispose();
+    }
 
-
+//    public static void main(String[] args) {
+//        AddNewContent dialog = new AddNewContent();
+//        dialog.pack();
+//        dialog.setVisible(true);
+//        System.exit(0);
+//    }
 }

@@ -3,6 +3,7 @@
  */
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -54,9 +55,14 @@ public class MainPage extends JFrame{
         addContent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-//                System.exit(0);
-                AddNewContent anc = new AddNewContent();
-                anc.setVisible(true);
+                EventQueue.invokeLater(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        AddNewContent anc = new AddNewContent();
+                        anc.setVisible(true);
+                    }
+                });
             }
         });
 
