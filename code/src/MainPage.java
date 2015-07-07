@@ -52,17 +52,43 @@ public class MainPage extends JFrame{
         JMenu contentManagement = new JMenu("مدیریت محتوا");
         contentManagement.setMnemonic(KeyEvent.VK_C);
 
-//        JMenuItem CMeMenuItem = new JMenuItem("????", icon);
-//        CMeMenuItem.setMnemonic(KeyEvent.VK_E);
-//        CMeMenuItem.setToolTipText("Exit application");
-//        CMeMenuItem.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent event) {
-//                System.exit(0);
-//            }
-//        });
+        JMenuItem addContent = new JMenuItem("اضافه کردن محتوا", icon);
+        addContent.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+        });
 
-//        file.add(eMenuItem);
+        JMenuItem searchContent = new JMenuItem("جستجو محتوا", icon);
+        searchContent.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+        });
+
+        JMenuItem createKnowledgeReq = new JMenuItem("ایجاد یک نیازمندی دانشی", icon);
+        createKnowledgeReq .addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+        });
+
+        JMenuItem createInterContentRelation = new JMenuItem("ایجاد رابطه بین محتوایی", icon);
+        createInterContentRelation .addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+        });
+
+        contentManagement.add(addContent);
+        contentManagement.add(searchContent);
+        contentManagement.add(createKnowledgeReq);
+        contentManagement.add(createInterContentRelation);
+
         menubar.add(contentManagement);
 
         setJMenuBar(menubar);
