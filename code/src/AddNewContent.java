@@ -6,15 +6,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-
-/**
- * Created by hamid on 7/8/2015.
- */
-public class MainPage extends JFrame{
-    public MainPage()
-    {
-        initUI();
-    }
+public class AddNewContent extends JFrame {
+    public AddNewContent() { initUI(); }
 
     private void initUI()
     {
@@ -54,9 +47,7 @@ public class MainPage extends JFrame{
         addContent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-//                System.exit(0);
-                AddNewContent anc = new AddNewContent();
-                anc.setVisible(true);
+                System.exit(0);
             }
         });
 
@@ -93,6 +84,7 @@ public class MainPage extends JFrame{
 
         setJMenuBar(menubar);
     }
+
 
 
 }
