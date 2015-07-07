@@ -70,7 +70,16 @@ public class MainPage extends JFrame{
         searchContent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                System.exit(0);
+                EventQueue.invokeLater(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        SearchContent sc = new SearchContent();
+                        sc.setVisible(true);
+                    }
+                });
+
+
             }
         });
 
@@ -78,7 +87,15 @@ public class MainPage extends JFrame{
         createKnowledgeReq .addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                System.exit(0);
+                EventQueue.invokeLater(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        DialogCreateKnowledgeRequirement dialog_cnr = new DialogCreateKnowledgeRequirement();
+                        dialog_cnr.setVisible(true);
+                    }
+                });
+
             }
         });
 
