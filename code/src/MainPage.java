@@ -22,7 +22,7 @@ public class MainPage extends JFrame{
     {
         createMenuBar();
 
-        setTitle("?????? ?????? ????");
+        setTitle("سامانه مدیریت دانش");
         setSize(800, 600);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -33,12 +33,12 @@ public class MainPage extends JFrame{
         JMenuBar menubar = new JMenuBar();
         ImageIcon icon = new ImageIcon("exit.png");
 
-        JMenu file = new JMenu("????");
+        JMenu file = new JMenu("فایل");
         file.setMnemonic(KeyEvent.VK_F);
 
-        JMenuItem eMenuItem = new JMenuItem("????", icon);
+        JMenuItem eMenuItem = new JMenuItem("خروج", icon);
         eMenuItem.setMnemonic(KeyEvent.VK_E);
-        eMenuItem.setToolTipText("???? ?? ??????");
+        eMenuItem.setToolTipText("خروج از سامانه");
         eMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
@@ -49,21 +49,21 @@ public class MainPage extends JFrame{
         file.add(eMenuItem);
         menubar.add(file);
 
-        JMenu contentManagement = new JMenu("?????? ?????");
-        file.setMnemonic(KeyEvent.VK_C);
+        JMenu contentManagement = new JMenu("مدیریت محتوا");
+        contentManagement.setMnemonic(KeyEvent.VK_C);
 
-        JMenuItem CMeMenuItem = new JMenuItem("????", icon);
-        CMeMenuItem.setMnemonic(KeyEvent.VK_E);
-        CMeMenuItem.setToolTipText("Exit application");
-        CMeMenuItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                System.exit(0);
-            }
-        });
+//        JMenuItem CMeMenuItem = new JMenuItem("????", icon);
+//        CMeMenuItem.setMnemonic(KeyEvent.VK_E);
+//        CMeMenuItem.setToolTipText("Exit application");
+//        CMeMenuItem.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent event) {
+//                System.exit(0);
+//            }
+//        });
 
-        file.add(eMenuItem);
-        menubar.add(file);
+//        file.add(eMenuItem);
+        menubar.add(contentManagement);
 
         setJMenuBar(menubar);
     }
