@@ -1,33 +1,28 @@
 import javax.swing.*;
 import java.awt.event.*;
 
-public class AddNewContent extends JDialog {
+public class DialogCreateInterContentRelation extends JDialog {
     private JPanel contentPane;
-    private JButton registerButton;
-    private JButton cancelButton;
-    private JTextField TitleTextField;
-    private JTextArea TextTextArea;
-    private JTextField FilenameTextField;
-    private JTextField LabelsTextField;
-    private JLabel titleLabel;
-    private JLabel textLabel;
-    private JLabel filenameLabel;
-    private JLabel labelsLabel;
+    private JButton buttonOK;
+    private JButton buttonCancel;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JComboBox comboBox1;
 
-    public AddNewContent() {
-        setSize(400, 600);
-        setTitle("افزودن محتوای جدید");
+    public DialogCreateInterContentRelation() {
+        setSize(400,600);
+        setTitle("ایجاد یک رابطه ی بین محتوایی");
         setContentPane(contentPane);
         setModal(true);
-        getRootPane().setDefaultButton(registerButton);
+        getRootPane().setDefaultButton(buttonOK);
 
-        registerButton.addActionListener(new ActionListener() {
+        buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onOK();
             }
         });
 
-        cancelButton.addActionListener(new ActionListener() {
+        buttonCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
             }
@@ -58,11 +53,4 @@ public class AddNewContent extends JDialog {
 // add your code here if necessary
         dispose();
     }
-
-//    public static void main(String[] args) {
-//        AddNewContent dialog = new AddNewContent();
-//        dialog.pack();
-//        dialog.setVisible(true);
-//        System.exit(0);
-//    }
 }

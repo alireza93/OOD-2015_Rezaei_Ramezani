@@ -9,6 +9,7 @@ public class SearchContent extends JDialog {
 
     public SearchContent() {
         setSize(400, 200);
+        setTitle("جستجوی محتوا");
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonSearch);

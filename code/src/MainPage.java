@@ -103,7 +103,15 @@ public class MainPage extends JFrame{
         createInterContentRelation .addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                System.exit(0);
+                EventQueue.invokeLater(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        DialogCreateInterContentRelation dialog_icr = new DialogCreateInterContentRelation();
+                        dialog_icr.setVisible(true);
+                    }
+                });
+
             }
         });
 
