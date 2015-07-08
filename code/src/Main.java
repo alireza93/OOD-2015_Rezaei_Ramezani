@@ -2,6 +2,8 @@
  * Created by hamid on 7/8/2015.
  */
 
+import UI.FormMainPage;
+
 import java.awt.*;
 
 
@@ -12,7 +14,7 @@ public class Main {
 
             @Override
             public void run() {
-                MainPage mainPage = new MainPage();
+                FormMainPage mainPage = new FormMainPage();
                 mainPage.setVisible(true);
             }
         });

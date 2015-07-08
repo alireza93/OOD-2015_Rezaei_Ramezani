@@ -1,32 +1,28 @@
+package UI;
+
 import javax.swing.*;
 import java.awt.event.*;
 
-public class AddNewContent extends JDialog {
+public class DialogSearchContent extends JDialog {
     private JPanel contentPane;
-    private JButton registerButton;
-    private JButton cancelButton;
-    private JTextField TitleTextField;
-    private JTextArea TextTextArea;
-    private JTextField FilenameTextField;
-    private JTextField LabelsTextField;
-    private JLabel titleLabel;
-    private JLabel textLabel;
-    private JLabel filenameLabel;
-    private JLabel labelsLabel;
+    private JButton buttonSearch;
+    private JButton buttonCancel;
+    private JTextField textField1;
 
-    public AddNewContent() {
-        setSize(400, 600);
+    public DialogSearchContent() {
+        setSize(400, 200);
+        setTitle("جستجوی محتوا");
         setContentPane(contentPane);
         setModal(true);
-        getRootPane().setDefaultButton(registerButton);
+        getRootPane().setDefaultButton(buttonSearch);
 
-        registerButton.addActionListener(new ActionListener() {
+        buttonSearch.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onOK();
             }
         });
 
-        cancelButton.addActionListener(new ActionListener() {
+        buttonCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
             }
@@ -57,11 +53,4 @@ public class AddNewContent extends JDialog {
 // add your code here if necessary
         dispose();
     }
-
-//    public static void main(String[] args) {
-//        AddNewContent dialog = new AddNewContent();
-//        dialog.pack();
-//        dialog.setVisible(true);
-//        System.exit(0);
-//    }
 }

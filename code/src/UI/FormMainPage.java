@@ -1,4 +1,4 @@
-/**
+package UI; /**
  * Created by hamid on 7/8/2015.
  */
 
@@ -11,8 +11,8 @@ import java.awt.event.KeyEvent;
 /**
  * Created by hamid on 7/8/2015.
  */
-public class MainPage extends JFrame{
-    public MainPage()
+public class FormMainPage extends JFrame{
+    public FormMainPage()
     {
         initUI();
     }
@@ -59,7 +59,7 @@ public class MainPage extends JFrame{
 
                     @Override
                     public void run() {
-                        AddNewContent anc = new AddNewContent();
+                        DialogAddNewContent anc = new DialogAddNewContent();
                         anc.setVisible(true);
                     }
                 });
@@ -70,7 +70,16 @@ public class MainPage extends JFrame{
         searchContent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                System.exit(0);
+                EventQueue.invokeLater(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        DialogSearchContent sc = new DialogSearchContent();
+                        sc.setVisible(true);
+                    }
+                });
+
+
             }
         });
 
@@ -78,7 +87,15 @@ public class MainPage extends JFrame{
         createKnowledgeReq .addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                System.exit(0);
+                EventQueue.invokeLater(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        DialogCreateKnowledgeRequirement dialog_cnr = new DialogCreateKnowledgeRequirement();
+                        dialog_cnr.setVisible(true);
+                    }
+                });
+
             }
         });
 
@@ -86,7 +103,15 @@ public class MainPage extends JFrame{
         createInterContentRelation .addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                System.exit(0);
+                EventQueue.invokeLater(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        DialogCreateInterContentRelation dialog_icr = new DialogCreateInterContentRelation();
+                        dialog_icr.setVisible(true);
+                    }
+                });
+
             }
         });
 
