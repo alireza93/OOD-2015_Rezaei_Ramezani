@@ -1,17 +1,19 @@
+package UI;
+
 import javax.swing.*;
 import java.awt.event.*;
 
-public class DialogCreateInterContentRelation extends JDialog {
+public class DialogCreateKnowledgeRequirement extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
     private JTextField textField1;
     private JTextField textField2;
-    private JComboBox comboBox1;
+    private JTextArea textArea1;
 
-    public DialogCreateInterContentRelation() {
-        setSize(400,600);
-        setTitle("ایجاد یک رابطه ی بین محتوایی");
+    public DialogCreateKnowledgeRequirement() {
+        setSize(400, 600);
+        setTitle("ایجاد یک نیازمندی دانشی");
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);

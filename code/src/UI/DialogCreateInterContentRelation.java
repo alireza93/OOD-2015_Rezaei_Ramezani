@@ -1,20 +1,24 @@
+package UI;
+
 import javax.swing.*;
 import java.awt.event.*;
 
-public class SearchContent extends JDialog {
+public class DialogCreateInterContentRelation extends JDialog {
     private JPanel contentPane;
-    private JButton buttonSearch;
+    private JButton buttonOK;
     private JButton buttonCancel;
     private JTextField textField1;
+    private JTextField textField2;
+    private JComboBox comboBox1;
 
-    public SearchContent() {
-        setSize(400, 200);
-        setTitle("جستجوی محتوا");
+    public DialogCreateInterContentRelation() {
+        setSize(400,600);
+        setTitle("ایجاد یک رابطه ی بین محتوایی");
         setContentPane(contentPane);
         setModal(true);
-        getRootPane().setDefaultButton(buttonSearch);
+        getRootPane().setDefaultButton(buttonOK);
 
-        buttonSearch.addActionListener(new ActionListener() {
+        buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onOK();
             }
