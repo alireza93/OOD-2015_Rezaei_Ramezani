@@ -1,5 +1,9 @@
 package content;
 
+import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -7,7 +11,10 @@ import java.util.List;
 /**
  * Created by hamid on 7/8/2015.
  */
+@Document
 public class Content {
+    @Id
+    private ObjectId id;
     private String name;
     private Date date;
     private String text;

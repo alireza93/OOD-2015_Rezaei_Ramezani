@@ -1,5 +1,8 @@
 package content;
 
+import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import user.User;
 
 import java.util.Date;
@@ -8,9 +11,11 @@ import java.util.Date;
  * @author Hamid Ramazani (mrramazani@gmail.com)
  *         Created on 7/23/2015
  */
+@Document
 public class Comment {
 
-
+    @Id
+    private ObjectId id;
 //    private CommentRepository;
     private String comment;
     private User user;

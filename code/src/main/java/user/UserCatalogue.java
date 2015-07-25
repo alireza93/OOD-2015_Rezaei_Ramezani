@@ -1,5 +1,9 @@
 package user;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import repository.UserRepository;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -7,7 +11,12 @@ import java.util.List;
  * @author Hamid Ramazani (mrramazani@gmail.com)
  *         Created on 7/21/2015
  */
+@Service
 public class UserCatalogue {
+
+    @Autowired
+    private UserRepository userRepository;
+
     private List<User> users = new LinkedList<User>();
 
     // TODO
@@ -22,7 +31,7 @@ public class UserCatalogue {
 
     // TODO
     public void addUser(User user) {
-
+        userRepository.save(user);
     }
 
     // TODO
