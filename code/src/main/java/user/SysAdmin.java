@@ -1,12 +1,10 @@
 package user;
 
-import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * @author Hamid Ramazani (mrramazani@gmail.com)
  *         Created on 7/25/2015
  */
-@Document
 public class SysAdmin extends User {
 
     public void createAdmin() {

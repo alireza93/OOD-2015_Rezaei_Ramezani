@@ -3,7 +3,6 @@ package content;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * @author Hamid Ramazani (mrramazani@gmail.com)

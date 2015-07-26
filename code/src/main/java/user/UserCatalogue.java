@@ -1,7 +1,6 @@
 package user;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import abstractCatalogue.AbstractCatalogue;
 import repository.UserRepository;
 
 import java.util.LinkedList;
@@ -11,11 +10,14 @@ import java.util.List;
  * @author Hamid Ramazani (mrramazani@gmail.com)
  *         Created on 7/21/2015
  */
-@Service
-public class UserCatalogue {
+public class UserCatalogue extends AbstractCatalogue{
 
-    @Autowired
     private UserRepository userRepository;
+
+    public UserCatalogue() {
+        super();
+        userRepository = new UserRepository(super.getMorphia(), super.getMongoClient());
+    }
 
     private List<User> users = new LinkedList<User>();
 

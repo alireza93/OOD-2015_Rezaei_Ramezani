@@ -1,5 +1,6 @@
-import UI.FormMainPage;
-import UI.UserPanel;
+package default_;
+
+import ui.userpanel.UserPanel;
 
 import javax.swing.*;
 import java.awt.event.*;

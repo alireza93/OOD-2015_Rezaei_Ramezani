@@ -3,7 +3,7 @@ package user;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
+import org.mongodb.morphia.annotations.Indexed;
 
 /**
  * @author Hamid Ramazani (mrramazani@gmail.com)

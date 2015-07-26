@@ -1,12 +1,12 @@
 package content;
 
 import com.mongodb.DBCollection;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.mongodb.morphia.dao.BasicDAO;
 
 /**
  * @author Hamid Ramazani (mrramazani@gmail.com)
  *         Created on 7/23/2015
  */
-public interface CommentRepository extends MongoRepository<Comment, String>{
+public class CommentRepository {
 //    DBCollection commentCollection =
 }
