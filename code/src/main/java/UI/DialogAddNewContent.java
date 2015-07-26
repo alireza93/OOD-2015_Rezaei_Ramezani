@@ -1,19 +1,22 @@
 package UI;
 
+import com.mongodb.MongoClient;
+import content.Comment;
+import content.Content;
+import content.ContentCatalogue;
+import content.Relationship;
+import org.mongodb.morphia.Morphia;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import user.User;
+
 import javax.swing.*;
 import java.awt.event.*;
-import java.sql.Connection;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.net.UnknownHostException;
+import java.util.*;
 
+//@Service
 public class DialogAddNewContent extends JDialog {
     private JPanel contentPane;
     private JButton registerButton;
@@ -27,7 +30,28 @@ public class DialogAddNewContent extends JDialog {
     private JLabel filenameLabel;
     private JLabel labelsLabel;
 
+//    @Autowired
+    private MongoClient mongoClient;
+
+    @Autowired
+    private Morphia morphia;
+
+//    @Autowired
+    private ContentCatalogue contentCatalogue;
+
     public DialogAddNewContent() {
+        try {
+            mongoClient = new MongoClient("localhost", 27017);
+        } catch (UnknownHostException e) {
+            throw new RuntimeException(e);
+        }
+        Set classesToMap = new HashSet();
+        classesToMap.add(Content.class);
+        classesToMap.add(User.class);
+        classesToMap.add(Comment.class);
+        classesToMap.add(Relationship.class);
+        morphia = new Morphia(classesToMap);
+        contentCatalogue = new ContentCatalogue(mongoClient, morphia);
         setSize(400, 600);
         setTitle("افزودن محتوای جدید");
         setContentPane(contentPane);
@@ -36,7 +60,7 @@ public class DialogAddNewContent extends JDialog {
 
         registerButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                addButtonAction();
             }
         });
 
@@ -62,8 +86,16 @@ public class DialogAddNewContent extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onOK() {
-        //TODO
+    private void addButtonAction() {
+
+        Content c = new Content();
+        c.setDate(new Date());
+        c.setName(TitleTextField.getText());
+        c.setText(TextTextArea.getText());
+        c.setFiles(Collections.<String>singletonList(FilenameTextField.getText()));
+        String[] tags = LabelsTextField.getText().split(",");
+        c.setTags(Arrays.asList(tags));
+        contentCatalogue.addContent(c);
     }
 
     private void onCancel() {

@@ -1,10 +1,17 @@
 package content;
 
+import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
+
 /**
  * @author Hamid Ramazani (mrramazani@gmail.com)
  *         Created on 7/21/2015
  */
+@Entity
 public class Relationship {
+    @Id
+    private ObjectId id;
     private Content firstContent;
     private Content secondContent;
     private String type;

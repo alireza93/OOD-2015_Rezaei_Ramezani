@@ -1,15 +1,25 @@
 package user;
 
+import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
+import org.mongodb.morphia.annotations.Indexed;
+
 /**
  * @author Hamid Ramazani (mrramazani@gmail.com)
  *         Created on 7/21/2015
  */
+@Entity
 public class User {
+    @Id
+    private ObjectId id;
+    @Indexed(unique = true)
     private String username;
     private String password;
     private String email;
     private String firstName;
     private String lastName;
+    private boolean isAdmin;
 
     public User() {
     }
@@ -60,5 +70,13 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
 }

@@ -1,5 +1,7 @@
 package content;
 
+import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Id;
 import user.User;
 
 import java.util.Date;
@@ -10,7 +12,8 @@ import java.util.Date;
  */
 public class Comment {
 
-
+    @Id
+    private ObjectId id;
 //    private CommentRepository;
     private String comment;
     private User user;

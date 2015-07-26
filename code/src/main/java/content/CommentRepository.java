@@ -1,6 +1,7 @@
 package content;
 
 import com.mongodb.DBCollection;
+import org.mongodb.morphia.dao.BasicDAO;
 
 /**
  * @author Hamid Ramazani (mrramazani@gmail.com)
