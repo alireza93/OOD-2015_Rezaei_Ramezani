@@ -1,8 +1,11 @@
 package default_;
 
 import ui.userpanel.UserPanel;
+import user.User;
+import user.UserCatalogue;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class UserLoginDialog extends JDialog {
@@ -12,11 +15,14 @@ public class UserLoginDialog extends JDialog {
     private JTextField textField1;
     private JPasswordField passwordField1;
 
+    private UserCatalogue userCatalogue;
+
     public UserLoginDialog() {
         setContentPane(contentPane);
         setModal(true);
         setSize(400,400);
         getRootPane().setDefaultButton(buttonOK);
+        userCatalogue = new UserCatalogue();
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -48,9 +54,17 @@ public class UserLoginDialog extends JDialog {
 
     private void onOK() {
 // add your code here
-        UserPanel userPanel = new UserPanel();
-        userPanel.setVisible(true);
-        this.setVisible(false);
+        User authenticatedUser = userCatalogue.authenticate(textField1.getText(), passwordField1.getText());
+        if (authenticatedUser != null) {
+            UserPanel userPanel = new UserPanel();
+            userPanel.setVisible(true);
+            this.setVisible(false);
+        }
+        else {
+            // show error dialog
+            getContentPane().add(new TextArea("Authentication Error"));
+
+        }
     }
 
     private void onCancel() {

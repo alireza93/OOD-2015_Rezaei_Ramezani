@@ -56,8 +56,10 @@ public class UserCatalogue extends AbstractCatalogue{
         return null;
     }
 
-    // TODO
     public User authenticate(String username, String password) {
+        User byUsername = userRepository.findByUsername(username);
+        if (byUsername.getPassword().equals(password))
+            return byUsername;
         return null;
     }
 }
