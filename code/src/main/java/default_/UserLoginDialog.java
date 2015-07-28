@@ -1,5 +1,6 @@
 package default_;
 
+import ui.userpanel.AdminPanel;
 import ui.userpanel.UserPanel;
 import user.User;
 import user.UserCatalogue;
@@ -8,7 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class UserLoginDialog extends JDialog {
+public class UserLoginDialog extends JFrame {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
@@ -19,7 +20,7 @@ public class UserLoginDialog extends JDialog {
 
     public UserLoginDialog() {
         setContentPane(contentPane);
-        setModal(true);
+//        setModal(true);
         setSize(400,400);
         getRootPane().setDefaultButton(buttonOK);
         userCatalogue = new UserCatalogue();
@@ -56,8 +57,14 @@ public class UserLoginDialog extends JDialog {
 // add your code here
         User authenticatedUser = userCatalogue.authenticate(textField1.getText(), passwordField1.getText());
         if (authenticatedUser != null) {
-            UserPanel userPanel = new UserPanel();
-            userPanel.setVisible(true);
+            if (!authenticatedUser.isAdmin()) {
+                UserPanel userPanel = new UserPanel();
+                userPanel.setVisible(true);
+            }
+            else {
+                AdminPanel adminPanel = new AdminPanel();
+                adminPanel.setVisible(true);
+            }
             this.setVisible(false);
         }
         else {
